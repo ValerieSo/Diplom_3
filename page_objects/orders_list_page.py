@@ -1,6 +1,5 @@
 import allure
 from locators.orders_list_locators import OrdersListLocators
-from locators.home_page_locators import HomePageLocators
 from page_objects.base_page import BasePage
 from selenium.common.exceptions import TimeoutException
 

@@ -16,7 +16,7 @@ class TestHomePage:
         home_page.click_constructor_button()
         section_header = home_page.find_constructor_header()
 
-        assert section_header.is_displayed() is True
+        assert section_header.is_displayed()
 
     @allure.title('Проверка перехода к ленте заказов по клику на кнопку «Лента заказов»')
     @allure.description('Дожидаемся загрузки страницы, затем кликаем на кнопку "Лента заказов", ожидаем появление '
@@ -63,10 +63,7 @@ class TestHomePage:
         home_page.add_ingredient_to_burger()
         counter_value = home_page.get_ingredient_counter()
 
-        try:
-            assert counter_value == '1'
-        except AssertionError as e:
-            print('Известный баг: драйвер firefox не перетягивает ингридиент, счетчик не меняется')
+        assert counter_value == '1'
 
     @allure.title('Залогиненный пользователь может оформить заказ')
     @allure.description('Дожидаемся загрузки страницы, в рамках подготовки тестового окружения кликаем по кнопке '
@@ -86,6 +83,6 @@ class TestHomePage:
         home_page.make_an_order()
         order_number = home_page.find_order_number()
 
-        assert order_number.is_displayed() is True and order_number.text is not '9999'
+        assert order_number.is_displayed() and order_number.text is not '9999'
 
 

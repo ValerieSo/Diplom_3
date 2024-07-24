@@ -10,7 +10,7 @@ class BasePage:
         self.driver = driver
 
     def find_clickable_element(self, locator):
-        WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(locator))
+        WebDriverWait(self.driver, 15).until(expected_conditions.element_to_be_clickable(locator))
         return self.driver.find_element(*locator)
 
     def wait_and_find_element(self, locator):

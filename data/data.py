@@ -1,12 +1,12 @@
 class Urls:
     BASE_URL = 'https://stellarburgers.nomoreparties.site/'
-    FEED_URL = 'https://stellarburgers.nomoreparties.site/feed'
-    LOGIN_URL = 'https://stellarburgers.nomoreparties.site/login'
-    PERSONAL_ACCOUNT_URL = 'https://stellarburgers.nomoreparties.site/account/profile'
-    ORDERS_HISTORY_URL = 'https://stellarburgers.nomoreparties.site/account/order-history'
-    PWD_RECOVERY_URL = 'https://stellarburgers.nomoreparties.site/forgot-password'
-    REGISTRATION_URL = 'https://stellarburgers.nomoreparties.site/register'
-    RESET_PWD_URL = 'https://stellarburgers.nomoreparties.site/reset-password'
+    FEED_URL = f'{BASE_URL}feed'
+    LOGIN_URL = f'{BASE_URL}login'
+    PERSONAL_ACCOUNT_URL = f'{BASE_URL}account/profile'
+    ORDERS_HISTORY_URL = f'{BASE_URL}account/order-history'
+    PWD_RECOVERY_URL = f'{BASE_URL}forgot-password'
+    REGISTRATION_URL = f'{BASE_URL}register'
+    RESET_PWD_URL = f'{BASE_URL}reset-password'
 
 
 class TestAuthorizationData:

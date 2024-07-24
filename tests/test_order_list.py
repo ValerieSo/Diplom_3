@@ -21,7 +21,7 @@ class TestOrderList:
         orders_list_page.click_order_in_orders_list()
         details_popup_window = orders_list_page.find_order_info()
 
-        assert details_popup_window.is_displayed() is True
+        assert details_popup_window.is_displayed()
 
     @allure.title('Проверка, что при создании нового заказа счётчик "Выполнено за всё время" увеличивается')
     @allure.description('Авторизуем тестового пользователя, переходим в "Ленту заказов" и фиксируем на счетчике число '
@@ -48,10 +48,7 @@ class TestOrderList:
         home_page.click_orders_list_button()
         counter_number_after = orders_list_page.get_number_of_completed_orders()
 
-        try:
-            assert int(counter_number_after) > int(counter_number_before)
-        except AssertionError as e:
-            print('Известный баг: драйвер firefox не сохраняет новый заказ, число заказов не меняется')
+        assert int(counter_number_after) > int(counter_number_before)
 
     @allure.title('Проверка, что при создании нового заказа счётчик "Выполнено за сегодня" увеличивается')
     @allure.description('Авторизуем тестового пользователя, переходим в "Ленту заказов" и фиксируем на счетчике число '
@@ -78,10 +75,7 @@ class TestOrderList:
         home_page.click_orders_list_button()
         counter_number_after = orders_list_page.get_today_completed_orders()
 
-        try:
-            assert int(counter_number_after) > int(counter_number_before)
-        except AssertionError as e:
-            print('Известный баг: драйвер firefox не сохраняет новый заказ, число заказов не меняется')
+        assert int(counter_number_after) > int(counter_number_before)
 
     @allure.title('Проверка, что после оформления заказа его номер появляется в разделе "В работе"')
     @allure.description('Авторизуем тестового пользователя, делаем заказ, фиксируем номер заказа, переходим в '
@@ -104,11 +98,7 @@ class TestOrderList:
         orders_list_page.wait_in_progress_refresh()
         order_in_progress = orders_list_page.find_order_in_progress()
 
-        try:
-            assert order_in_progress == f'0{order_number}'
-        except AssertionError as e:
-            print('Известный баг: драйвер firefox не сохраняет заказ, получить реальный номер заказа для '
-                  'сравнения невозможно')
+        assert order_in_progress == f'0{order_number}'
 
     @allure.title('Проверка, что заказ пользователя из раздела «История заказов» '
                   'отображается на странице «Лента заказов»')
